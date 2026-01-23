@@ -21,7 +21,7 @@ jobs:
         with:
           repository: zmkfirmware/zmk
           ref: main
-          path: .
+          path: ..
 
       - name: Initialize West
         run: |
@@ -29,17 +29,17 @@ jobs:
           pip install west
           west init -l config
           west update
-        working-directory: .
+        working-directory: ..
 
       - name: Build Corne (left)
         run: |
           west build -b nice_nano_v2 -- -DSHIELD=corne_left
-        working-directory: .
+        working-directory: ..
 
       - name: Build Corne (right)
         run: |
           west build -b nice_nano_v2 -- -DSHIELD=corne_right
-        working-directory: .
+        working-directory: ..
 
       - name: Upload firmware artifacts
         uses: actions/upload-artifact@v4
