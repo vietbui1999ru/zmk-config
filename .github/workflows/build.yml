@@ -21,13 +21,13 @@ jobs:
         with:
           repository: zmkfirmware/zmk
           ref: main
-          path: .
+          path: zmk
 
       - name: Initialize West
         run: |
           python3 -m pip install --upgrade pip
           pip install west
-          west init -l config
+          west init -l ../config -v
           west update
         working-directory: .
 
