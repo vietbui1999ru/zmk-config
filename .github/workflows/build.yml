@@ -27,7 +27,7 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip install west
-          west init -l ../config -v
+          west init -l ../config
           west update
         working-directory: .
 
