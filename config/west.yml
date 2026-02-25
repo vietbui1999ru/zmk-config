@@ -1,9 +1,8 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+    - name: maatthc
+      url-base: https://github.com/maatthc
   projects:
-    - name: zmk
-      remote: zmkfirmware
+    - name: zmk-feature-appcompanion
+      remote: maatthc
       revision: main
-      import: app/west.yml
