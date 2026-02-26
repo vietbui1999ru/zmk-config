@@ -2,8 +2,6 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: nickcoutsos
-      url-base: https://github.com/nickcoutsos
     - name: maatthc
       url-base: https://github.com/maatthc
   projects:
@@ -14,8 +12,6 @@ manifest:
     - name: zmk-feature-appcompanion
       remote: maatthc
       revision: main
-    - name: keyboardio-hid
-      remote: nickcoutsos
-      revision: main
+      path: modules/zmk-feature-appcompanion
   self:
     path: config
