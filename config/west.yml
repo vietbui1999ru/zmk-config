@@ -2,16 +2,16 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: maatthc
-      url-base: https://github.com/maatthc
+    - name: a741725193
+      url-base: https://github.com/a741725193
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: zmk-feature-appcompanion
-      remote: maatthc
+    - name: zmk-new_corne
+      remote: a741725193
       revision: main
-      path: modules/zmk-feature-appcompanion
+      path: modules/zmk-new_corne
   self:
     path: config
