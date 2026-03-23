@@ -9,12 +9,25 @@ on:
 
 jobs:
   draw:
-    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    runs-on: ubuntu-latest
     permissions:
       contents: write
-    with:
-      keymap_patterns: "config/*.keymap"
-      config_path: "keymap_drawer.config.yaml"
-      west_config_path: "config"
-      output_folder: "keymap-drawer"
-      draw_args: "eyelash_corne:'--ortho-layout \"{split_cols: [6,6], thumbs: 3}\"'"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install keymap-drawer
+        run: pipx install keymap-drawer
+
+      - name: Parse and draw keymap
+        run: |
+          mkdir -p keymap-drawer
+          keymap -c keymap_drawer.config.yaml parse -z config/eyelash_corne.keymap > keymap-drawer/eyelash_corne.yaml
+          keymap -c keymap_drawer.config.yaml draw \
+            --ortho-layout '{"split_cols": [6,6], "thumbs": 3}' \
+            keymap-drawer/eyelash_corne.yaml > keymap-drawer/eyelash_corne.svg
+
+      - name: Commit files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "keymap-drawer render"
+          file_pattern: "keymap-drawer/*.svg keymap-drawer/*.yaml"
