@@ -15,22 +15,37 @@
 #define MEDIA   6
 #define FN      7
 
-/ {
+// ─── KEY POSITIONS (42 key corne) ────────────────────────────
+// ┌──┬──┬──┬──┬──┬──┐   ┌──┬──┬──┬──┬──┬──┐
+// │0 │1 │2 │3 │4 │5 │   │6 │7 │8 │9 │10│11│
+// │12│13│14│15│16│17│   │18│19│20│21│22│23│
+// │24│25│26│27│28│29│   │30│31│32│33│34│35│
+// └──┴──┴──┼──┼──┼──┤   ├──┼──┼──┼──┴──┴──┘
+//          │36│37│38│   │39│40│41│
+//          └──┴──┴──┘   └──┴──┴──┘
 
+/ {
     // ═══════════════════════════════════════════════════════════
     // COMBOS
     // ═══════════════════════════════════════════════════════════
     combos {
         compatible = "zmk,combos";
 
-        // FN layer — Q+P (top row outer corners, deliberate)
+        // FN — Q+P (top row outer corners, positions 1+10)
         combo_fn {
             timeout-ms = <50>;
             key-positions = <1 10>;
             bindings = <&tog FN>;
         };
 
-        // MEDIA layer — Z+/ (bottom row outer corners, deliberate)
+        // TMUX — E+I (top row symmetric middle, positions 3+8)
+        combo_tmux {
+            timeout-ms = <50>;
+            key-positions = <3 8>;
+            bindings = <&tog TMUX>;
+        };
+
+        // MEDIA — Z+/ (bottom row outer corners, positions 25+34)
         combo_media {
             timeout-ms = <50>;
             key-positions = <25 34>;
@@ -166,16 +181,6 @@
     // BEHAVIORS
     // ═══════════════════════════════════════════════════════════
     behaviors {
-        // Left outer thumb: tap = Ctrl, hold = Hyper
-        lctl_hyper: lctl_hyper {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&hyper>, <&kp>;
-        };
-
-        // Thumb layer taps
         lt_thumb: layer_tap_thumb {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -190,6 +195,7 @@
 
         // ══════════════════════════════════════════════════════
         // LAYER 0 — QWERTY
+        // Thumb: [LCTRL] [NUM/RET] [SYM/SPC]   [NAV/TAB] [RET] [HYPER]
         // ══════════════════════════════════════════════════════
         qwerty_layer {
             display-name = "QWERTY";
@@ -201,13 +207,14 @@
 // ├────────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼────────┤
    &kp LSHFT &kp Z  &kp X  &kp C  &kp V  &kp B     &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
 // └────────┴──────┴──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┴──────┴────────┘
-               &lctl_hyper HYPER LCTRL  &lt_thumb NUM RET  &lt_thumb SYM SPACE
-                                        &lt_thumb NAV TAB  &kp RET  &lt_thumb TMUX BSPC
+                           &kp LCTRL  &lt_thumb NUM RET  &lt_thumb SYM SPACE
+                                      &lt_thumb NAV TAB  &kp RET  &hyper
             >;
         };
 
         // ══════════════════════════════════════════════════════
         // LAYER 1 — COLEMAK-DH
+        // Alpha swap only, everything else identical
         // ══════════════════════════════════════════════════════
         colemak_layer {
             display-name = "COLEMAK";
@@ -219,15 +226,15 @@
 // ├────────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼────────┤
    &kp LSHFT &kp Z  &kp X  &kp C  &kp D  &kp V     &kp K  &kp H  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
 // └────────┴──────┴──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┴──────┴────────┘
-               &lctl_hyper HYPER LCTRL  &lt_thumb NUM RET  &lt_thumb SYM SPACE
-                                        &lt_thumb NAV TAB  &kp RET  &lt_thumb TMUX BSPC
+                           &kp LCTRL  &lt_thumb NUM RET  &lt_thumb SYM SPACE
+                                      &lt_thumb NAV TAB  &kp RET  &hyper
             >;
         };
 
         // ══════════════════════════════════════════════════════
         // LAYER 2 — NUM
         // Top row: numbers 1-0
-        // Home row: AeroSpace workspace 1-9
+        // Home row: AeroSpace workspaces 1-9
         // Bottom left: screenshots
         // ══════════════════════════════════════════════════════
         num_layer {
@@ -236,9 +243,9 @@
 // ┌──────┬──────┬──────┬──────┬──────┬──────┐   ┌──────┬──────┬──────┬──────┬──────┬──────┐
    &trans  &kp N1 &kp N2 &kp N3 &kp N4 &kp N5     &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &trans
 // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-   &trans &aero_1 &aero_2 &aero_3 &aero_4 &aero_5  &aero_6 &aero_7 &aero_8 &aero_9 &trans &trans
+   &trans &aero_1 &aero_2 &aero_3 &aero_4 &aero_5   &aero_6 &aero_7 &aero_8 &aero_9 &trans &trans
 // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-   &trans &scr_full &scr_sel &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+   &trans &scr_full &scr_sel &trans &trans &trans    &trans &trans &trans &trans &trans &trans
 // └──────┴──────┴──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┴──────┴──────┘
                          &trans  &trans  &trans     &trans  &trans  &trans
             >;
@@ -246,8 +253,10 @@
 
         // ══════════════════════════════════════════════════════
         // LAYER 3 — SYM
-        // Home row: most used symbols
-        // Open brackets left, close brackets right
+        // Home row: most used — ` - = [ {   } ] _ +
+        // Top row: shift symbols
+        // Bottom: quotes, angle brackets, operators
+        // Open left hand, close right hand
         // ══════════════════════════════════════════════════════
         sym_layer {
             display-name = "SYM";
@@ -265,7 +274,7 @@
 
         // ══════════════════════════════════════════════════════
         // LAYER 4 — NAV
-        // Right hand: HJKL arrows (Vim muscle memory)
+        // Right hand: HJKL arrows
         // Left hand: word nav, undo/cut/copy/paste, mods
         // ══════════════════════════════════════════════════════
         nav_layer {
@@ -284,7 +293,7 @@
 
         // ══════════════════════════════════════════════════════
         // LAYER 5 — TMUX
-        // All bindings pre-send Ctrl+S prefix
+        // Toggle: E+I combo
         // Top: window 1-9
         // Home: pane HJKL + session ops
         // Bottom: split, zoom, kill, detach, new
@@ -307,7 +316,7 @@
         // LAYER 6 — MEDIA
         // Toggle: Z+/ combo
         // Left: RGB controls
-        // Right: volume, brightness, mouse movement
+        // Right: volume, brightness, mouse
         // ══════════════════════════════════════════════════════
         media_layer {
             display-name = "MEDIA";
@@ -326,7 +335,7 @@
         // ══════════════════════════════════════════════════════
         // LAYER 7 — FN
         // Toggle: Q+P combo
-        // BT clear: bottom row right, protected inside FN
+        // BT clear: bottom row right, protected inside FN layer
         // ══════════════════════════════════════════════════════
         fn_layer {
             display-name = "FN";
