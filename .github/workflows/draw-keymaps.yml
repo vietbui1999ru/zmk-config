@@ -23,7 +23,7 @@ jobs:
           mkdir -p keymap-drawer
           keymap -c keymap_drawer.config.yaml parse -z config/eyelash_corne.keymap > keymap-drawer/eyelash_corne.yaml
           keymap -c keymap_drawer.config.yaml draw \
-            --ortho-layout '{"rows": 3, "columns": 6, "thumbs": 3, "split": true}' \
+            -l default_layout \
             keymap-drawer/eyelash_corne.yaml > keymap-drawer/eyelash_corne.svg
 
       - name: Commit files
