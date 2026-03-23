@@ -17,4 +17,4 @@ jobs:
       config_path: "keymap_drawer.config.yaml"
       west_config_path: "config"
       output_folder: "keymap-drawer"
-      draw_args: "eyelash_corne:'--ortho-layout split_3x6_3'"
+      draw_args: "eyelash_corne:'--ortho-layout {split_cols: [6,6], thumbs: 3}'"
