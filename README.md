@@ -9,12 +9,13 @@
     - [x] Aerospace
     - [x] Touch typing
     - [x] MacOS & Linux (suck it Microslop)
-+ To increase efficiency in my typing and reduce the key-travel time.
++ To increase efficiency in my typing and reduce key-travel time.
 + To cook up more AI slop with the new colemak dh typing @140 WPM.
 
 
-## Specs & Features| Spec | Detail |
+## Specs & Features
 
+| Spec | Detail |
 |------|--------|
 | Keyboard | Eyelash Corne (AliExpress) |
 | Controller | nice!nano (nRF52840) |
