@@ -1,4 +1,18 @@
 on: [push, pull_request, workflow_dispatch]
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/*.keymap"
+      - "config/*.conf"
+      - "config/west.yml"
+      - "build.yaml"
+  pull_request:
+    paths:
+      - "config/*.keymap"
+      - "config/*.conf"
+      - "config/west.yml"
+      - "build.yaml"
 
 jobs:
   build:
