@@ -22,8 +22,9 @@ manifest:
     - name: zmk-raw-hid
       remote: zzeneg
       revision: main
-    - name: zmk-keypeek-layer-notifier
+    - name: z-keek-layerifier  # Add KeyPeek
       remote: srwi
-      revision: master
+      revision: main
+      path: modules/z-keek-layerifier
   self:
     path: config
