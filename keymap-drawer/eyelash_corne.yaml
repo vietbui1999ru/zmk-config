@@ -100,15 +100,15 @@ layers:
   - '0'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&a_1'
-  - '&a_2'
-  - '&a_3'
-  - '&a_4'
-  - '&a_5'
-  - '&a_6'
-  - '&a_7'
-  - '&a_8'
-  - '&a_9'
+  - '&aero_1'
+  - '&aero_2'
+  - '&aero_3'
+  - '&aero_4'
+  - '&aero_5'
+  - '&aero_6'
+  - '&aero_7'
+  - '&aero_8'
+  - '&aero_9'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -217,46 +217,46 @@ layers:
   - DEL
   TMUX:
   - {t: ▽, type: trans}
-  - '&tw1'
-  - '&tw2'
-  - '&tw3'
-  - '&tw4'
-  - '&tw5'
-  - '&tw6'
-  - '&tw7'
-  - '&tw8'
-  - '&tw9'
+  - '&tx_w1'
+  - '&tx_w2'
+  - '&tx_w3'
+  - '&tx_w4'
+  - '&tx_w5'
+  - '&tx_w6'
+  - '&tx_w7'
+  - '&tx_w8'
+  - '&tx_w9'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&tSess'
-  - '&tPrev'
-  - '&tCopy'
-  - '&tNext'
+  - '&tx_sess'
+  - '&tx_prev'
+  - '&tx_copy'
+  - '&tx_next'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&tLeft'
-  - '&tDown'
-  - '&tUp'
-  - '&tRight'
+  - '&tx_left'
+  - '&tx_down'
+  - '&tx_up'
+  - '&tx_right'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&tNew'
-  - '&tZoom'
-  - '&tHsplit'
-  - '&tVsplit'
-  - '&tDetach'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&tx_new'
+  - '&tx_zoom'
+  - '&tx_hsplit'
+  - '&tx_vsplit'
+  - '&tx_detach'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&tKill'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&tLast'
+  - {t: ▽, type: trans}
+  - '&tx_kill'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&tx_last'
   - {t: ▽, type: trans}
   MEDIA:
   - {t: MEDIA, h: toggle}
@@ -267,7 +267,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mmv UP'
+  - '&mmv MOVE_UP'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -278,9 +278,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mmv LEFT'
-  - '&mmv DOWN'
-  - '&mmv RIGHT'
+  - '&mmv MOVE_LEFT'
+  - '&mmv MOVE_DOWN'
+  - '&mmv MOVE_RIGHT'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
