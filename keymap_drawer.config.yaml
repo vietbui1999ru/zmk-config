@@ -1,40 +1,86 @@
 parse_config:
-  # Readable labels for custom macros
   zmk_keycode_map:
-    # AeroSpace workspace switching
-    aero_1: "WS 1"
-    aero_2: "WS 2"
-    aero_3: "WS 3"
-    aero_4: "WS 4"
-    aero_5: "WS 5"
-    aero_6: "WS 6"
-    aero_7: "WS 7"
-    aero_8: "WS 8"
-    aero_9: "WS 9"
-    # Screenshots
+    EXCL: "!"
+    AT: "@"
+    HASH: "#"
+    DLLR: "$"
+    PRCNT: "%"
+    CARET: "^"
+    AMPS: "&"
+    ASTRK: "*"
+    LPAR: "("
+    RPAR: ")"
+    MINUS: "-"
+    EQUAL: "="
+    LBKT: "["
+    RBKT: "]"
+    LBRC: "{"
+    RBRC: "}"
+    UNDER: "_"
+    PLUS: "+"
+    PIPE: "|"
+    BSLH: "\\"
+    TILDE: "~"
+    GRAVE: "`"
+    LT: "<"
+    GT: ">"
+    DQT: "\""
+    SQT: "'"
+    COLON: ":"
+    SEMI: ";"
+    QMARK: "?"
+    FSLH: "/"
+    COMMA: ","
+    DOT: "."
+    LGUI: "⌘"
+    RGUI: "⌘"
+    LALT: "⌥"
+    RALT: "⌥"
+    LCTRL: "⌃"
+    RCTRL: "⌃"
+    LSHFT: "⇧"
+    RSHFT: "⇧"
+    CAPS: "⇪"
+    BSPC: "⌫"
+    DEL: "⌦"
+    TAB: "⇥"
+    RET: "↵"
+    ESC: "⎋"
+    UP: "↑"
+    DOWN: "↓"
+    LEFT: "←"
+    RIGHT: "→"
+    PG_UP: "PgUp"
+    PG_DN: "PgDn"
+    HOME: "Home"
+    END: "End"
+    aero_1: "WS1"
+    aero_2: "WS2"
+    aero_3: "WS3"
+    aero_4: "WS4"
+    aero_5: "WS5"
+    aero_6: "WS6"
+    aero_7: "WS7"
+    aero_8: "WS8"
+    aero_9: "WS9"
     scr_full: "⌘⇧3"
-    scr_sel:  "⌘⇧4"
-    # Hyper
+    scr_sel: "⌘⇧4"
     hyper: "HYPER"
-    # Tmux pane navigation
-    tx_left:  "←pane"
+    tx_left: "←pane"
     tx_right: "→pane"
-    tx_up:    "↑pane"
-    tx_down:  "↓pane"
-    # Tmux pane ops
-    tx_vsplit: "vsplit"
-    tx_hsplit: "hsplit"
-    tx_zoom:   "zoom"
-    tx_kill:   "kill"
+    tx_up: "↑pane"
+    tx_down: "↓pane"
+    tx_vsplit: "v-split"
+    tx_hsplit: "h-split"
+    tx_zoom: "zoom"
+    tx_kill: "kill"
     tx_detach: "detach"
-    # Tmux window ops
-    tx_new:  "new win"
+    tx_new: "new win"
     tx_next: "next win"
     tx_prev: "prev win"
     tx_last: "last pane"
     tx_sess: "sessions"
     tx_copy: "copy mode"
-    # Tmux window numbers
     tx_w1: "win 1"
     tx_w2: "win 2"
     tx_w3: "win 3"
@@ -44,28 +90,28 @@ parse_config:
     tx_w7: "win 7"
     tx_w8: "win 8"
     tx_w9: "win 9"
-    # Layout switching
-    to_qwerty:  "QWERTY"
+    to_qwerty: "QWERTY"
     to_colemak: "CLMK"
+    C_VOL_UP: "Vol+"
+    C_VOL_DN: "Vol-"
+    C_MUTE: "Mute"
+    C_BRI_UP: "Bri+"
+    C_BRI_DN: "Bri-"
 
 draw_config:
   key_w: 55
   key_h: 45
   separate_combo_diagrams: true
   combo_diagrams_scale: 2
-
-  # Per-layer background colors for easy visual distinction
   layer_colors:
-    - "#f8f8f8"   # 0 QWERTY   — white
-    - "#dff0ff"   # 1 COLEMAK  — light blue
-    - "#dfffdf"   # 2 NUM      — light green
-    - "#fff0df"   # 3 SYM      — light orange
-    - "#f0dfff"   # 4 NAV      — light purple
-    - "#ffdfdf"   # 5 TMUX     — light red
-    - "#dfffff"   # 6 MEDIA    — light cyan
-    - "#ffffdf"   # 7 FN       — light yellow
-
-  # Dim transparent keys so active keys stand out
+    - "#f8f8f8"
+    - "#dff0ff"
+    - "#dfffdf"
+    - "#fff0df"
+    - "#f0dfff"
+    - "#ffdfdf"
+    - "#dfffff"
+    - "#ffffdf"
   trans_legend:
     t: "▽"
     type: "ghost"
