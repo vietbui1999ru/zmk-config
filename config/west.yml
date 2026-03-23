@@ -2,16 +2,28 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: zzeneg
+      url-base: https://github.com/zzeneg
+    - name: srwi
+      url-base: https://github.com/srwi
+    - name: vietbui1999ru        # ← your GitHub username
+      url-base: https://github.com/vietbui1999ru
     - name: a741725193
       url-base: https://github.com/a741725193
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3.0
+      revision: main
       import: app/west.yml
     - name: zmk-new_corne
-      remote: a741725193
+      remote: vietbui1999ru      # ← points to your fork
       revision: main
       path: modules/zmk-new_corne
+    - name: zmk-raw-hid
+      remote: zzeneg
+      revision: main
+    - name: zmk-keypeek-layer-notifier
+      remote: srwi
+      revision: master
   self:
     path: config

@@ -1,6 +1,7 @@
 ---
 include:
   - board: eyelash_corne_left
+    shield: raw_hid_adapter
   - board: eyelash_corne_right
   - board: eyelash_corne_left
     shield: settings_reset
