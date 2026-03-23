@@ -14,10 +14,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-
       - name: Install keymap-drawer
         run: pipx install keymap-drawer
-
       - name: Parse and draw keymap
         run: |
           mkdir -p keymap-drawer
@@ -25,7 +23,6 @@ jobs:
           keymap -c keymap_drawer.config.yaml draw \
             -l default_layout \
             keymap-drawer/eyelash_corne.yaml > keymap-drawer/eyelash_corne.svg
-
       - name: Commit files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
