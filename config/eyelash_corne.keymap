@@ -95,7 +95,7 @@
             bindings
                 = <&macro_press &kp LCTRL &kp LALT &kp LGUI &kp LSHFT>
                 , <&macro_pause_for_release>
-                , <&macro_release &kp LCTRL &kp LALT &kp LGUI &kp LSHFT>;
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHFT &kp LGUI >;
         };
 
         // ── AeroSpace workspace macros (Hyper + 1-9) ─────────
