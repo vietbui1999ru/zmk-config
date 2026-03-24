@@ -77,7 +77,7 @@
         lt_thumb: layer_tap_thumb {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <180>&kp LGUI ;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
         };
