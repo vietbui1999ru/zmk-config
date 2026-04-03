@@ -22,10 +22,10 @@
             key-positions = <1 11>;
             bindings = <&tog FN>;
         };
-        // B key (29) + ESC key (35) — bottom-left and bottom-right corners
+        // Z key (29) + / key (40) — bottom-left and bottom-right physical keys
         combo_media {
             timeout-ms = <50>;
-            key-positions = <29 35>;
+            key-positions = <29 40>;
             bindings = <&tog MEDIA>;
         };
     };
