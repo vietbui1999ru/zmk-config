@@ -10,9 +10,8 @@
 #define NUM     2
 #define SYM     3
 #define NAV     4
-#define TMUX    5
-#define MEDIA   6
-#define FN      7
+#define MEDIA   5
+#define FN      6
 
 / {
     combos {
@@ -23,15 +22,20 @@
             key-positions = <1 11>;
             bindings = <&tog FN>;
         };
-        combo_tmux {
-            timeout-ms = <50>;
-            key-positions = <3 9>;
-            bindings = <&tog TMUX>;
-        };
+        // B key (29) + ESC key (35) — bottom-left and bottom-right corners
         combo_media {
             timeout-ms = <50>;
-            key-positions = <29 40>;
+            key-positions = <29 35>;
             bindings = <&tog MEDIA>;
+        };
+    };
+
+    // NAV activates automatically when both NUM and SYM are held simultaneously
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        nav_layer {
+            if-layers = <NUM SYM>;
+            then-layer = <NAV>;
         };
     };
 
@@ -110,55 +114,6 @@
                       , <&macro_release &kp LGUI &kp LSHFT>;
         };
 
-        tx_left:   tx_left   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp H>; };
-        tx_down:   tx_down   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp J>; };
-        tx_up:     tx_up     { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp K>; };
-        tx_right:  tx_right  { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp L>; };
-        tx_vsplit: tx_vsplit { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp MINUS>; };
-        tx_hsplit: tx_hsplit { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp BSLH>; };
-        tx_zoom:   tx_zoom   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp Z>; };
-        tx_kill:   tx_kill   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp X>; };
-        tx_detach: tx_detach { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp D>; };
-        tx_new:    tx_new    { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp C>; };
-        tx_next:   tx_next   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N>; };
-        tx_prev:   tx_prev   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp P>; };
-        tx_last:   tx_last   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp L>; };
-        tx_sess:   tx_sess   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp S>; };
-        tx_copy:   tx_copy   { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp LBKT>; };
-        tx_w1: tx_w1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N1>; };
-        tx_w2: tx_w2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N2>; };
-        tx_w3: tx_w3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N3>; };
-        tx_w4: tx_w4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N4>; };
-        tx_w5: tx_w5 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N5>; };
-        tx_w6: tx_w6 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N6>; };
-        tx_w7: tx_w7 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N7>; };
-        tx_w8: tx_w8 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N8>; };
-        tx_w9: tx_w9 { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp S>, <&macro_release &kp LCTRL>, <&macro_tap &kp N9>; };
-
         to_qwerty:  to_qwerty  { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&to QWERTY>; };
         to_colemak: to_colemak { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&to COLEMAK>; };
     };
@@ -168,9 +123,10 @@
 
         // ══════════════════════════════════════════════════════
         // LAYER 0 — QWERTY
-        // Home row outer left = LSHFT (double-tap = caps_word)
-        // Bottom row outer left = LCTRL
-        // Right shift position = ESC
+        // Left middle thumb  = hold → NUM,  tap → RET
+        // Right middle thumb = hold → SYM,  tap → RET
+        // Both middle thumbs held → NAV (conditional layer)
+        // Inner thumbs = SPACE (left) / ENTER (right)
         // Right outer thumb = RALT (Karabiner converts to Hyper)
         // ══════════════════════════════════════════════════════
         qwerty_layer {
@@ -180,10 +136,10 @@
 &kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T           &trans         &kp Y  &kp U  &kp I      &kp O    &kp P     &kp BSPC
 // Row 1: 12 alpha + 3 encoder
 &kp LSHFT  &kp A  &kp S  &kp D  &kp F  &kp G  &trans   &trans  &trans &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-// Row 2: 12 alpha + 2 encoder/rocker
+// Row 2: 12 alpha + 2 encoder
 &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B  &trans          &trans  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-// Thumbs: CMD | NUM/RET | SYM/SPC    NAV/TAB | RET | RALT(→Hyper via Karabiner)
-                   &kp LGUI  &lt_thumb NUM RET  &lt_thumb SYM SPACE   &lt_thumb NAV TAB  &kp RET  &kp RALT
+// Thumbs: CMD | NUM/RET | SPC    ENT | SYM/RET | RALT(→Hyper via Karabiner)
+                   &kp LGUI  &lt_thumb NUM RET  &kp SPACE   &kp RET  &lt_thumb SYM RET  &kp RALT
             >;
         };
 
@@ -196,7 +152,7 @@
 &kp TAB    &kp Q  &kp W  &kp F  &kp P  &kp B           &trans         &kp J  &kp L  &kp U      &kp Y    &kp SEMI  &kp BSPC
 &kp LSHFT  &kp A  &kp R  &kp S  &kp T  &kp G  &trans   &trans  &trans &kp M  &kp N  &kp E      &kp I    &kp O     &kp SQT
 &kp LCTRL  &kp Z  &kp X  &kp C  &kp D  &kp V  &trans          &trans  &kp K  &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                   &kp LGUI  &lt_thumb NUM RET  &lt_thumb SYM SPACE   &lt_thumb NAV TAB  &kp RET  &kp RALT
+                   &kp LGUI  &lt_thumb NUM RET  &kp SPACE   &kp RET  &lt_thumb SYM RET  &kp RALT
             >;
         };
 
@@ -227,33 +183,35 @@
         };
 
         // ══════════════════════════════════════════════════════
-        // LAYER 4 — NAV
+        // LAYER 4 — NAV  (hold left-mid + right-mid thumb)
+        //
+        // AeroSpace workspace switching — mnemonic key positions:
+        //   Left top:  ws:1  ws:2  ws:3  ws:R  ws:T
+        //   Left home: bk-fth ws:S  ---  lyt↔  lyt|
+        //   Left bot:  rsz-  rsz+  ws:C  mv-ws→mon  ws:B
+        //   Right top: ws:0  HOME  UP    ws:O  ws:P  DEL
+        //   Right home: PG_DN ←    ↓     →    PG_UP del-word
+        //   Right bot:  ws:N  ws:M  ---   ---   ---
+        //
+        // Shift compounds naturally: shift + ws:X → move-node-to-workspace X
+        // Ctrl compounds:            ctrl  + ←/→  → focus-monitor left/right
         // ══════════════════════════════════════════════════════
         nav_layer {
             display-name = "NAV";
             bindings = <
-&trans  &trans    &kp LA(LEFT) &trans    &kp LA(RIGHT) &kp HOME         &trans         &kp PG_UP &kp HOME     &kp UP    &kp END   &trans  &kp DEL
-&trans  &kp LGUI  &kp LALT     &kp LCTRL &kp LSHFT     &kp PG_DN &trans &trans  &trans &kp PG_DN &kp LEFT     &kp DOWN  &kp RIGHT &trans  &trans
-&trans  &kp LG(Z) &kp LG(X)   &kp LG(C) &kp LG(V)     &kp END   &trans         &trans &trans    &kp LA(BSPC) &trans    &trans    &trans  &trans
-                                &trans    &trans         &trans                          &trans    &trans       &kp DEL
+// Row 0
+&trans  &kp LA(N1)     &kp LA(N2)     &kp LA(N3)  &kp LA(R)      &kp LA(T)        &trans         &kp LA(N0)  &kp HOME  &kp UP    &kp LA(O)  &kp LA(P)  &kp DEL
+// Row 1
+&trans  &kp LA(TAB)    &kp LA(S)      &trans      &kp LA(COMMA)  &kp LA(SLASH)    &trans  &trans  &trans     &kp PG_DN &kp LEFT  &kp DOWN   &kp RIGHT  &kp PG_UP  &kp LA(BSPC)
+// Row 2
+&trans  &kp LA(MINUS)  &kp LA(EQUAL)  &kp LA(C)   &kp LA(LS(TAB))  &kp LA(B)     &trans          &trans     &kp LA(N) &kp LA(M) &trans     &trans     &trans     &trans
+// Thumbs
+                        &trans  &trans  &trans                          &trans  &trans  &kp DEL
             >;
         };
 
         // ══════════════════════════════════════════════════════
-        // LAYER 5 — TMUX
-        // ══════════════════════════════════════════════════════
-        tmux_layer {
-            display-name = "TMUX";
-            bindings = <
-&trans  &tx_w1   &tx_w2   &tx_w3     &tx_w4     &tx_w5             &trans         &tx_w6  &tx_w7    &tx_w8    &tx_w9    &trans    &trans
-&trans  &tx_sess &tx_prev &tx_copy   &tx_next   &trans    &trans   &trans  &trans  &trans  &tx_left  &tx_down  &tx_up    &tx_right &trans
-&trans  &tx_new  &tx_zoom &tx_hsplit &tx_vsplit  &tx_detach &trans          &trans  &trans  &trans    &trans    &trans    &trans    &trans
-                           &trans    &tx_kill    &trans                             &trans  &tx_last  &trans
-            >;
-        };
-
-        // ══════════════════════════════════════════════════════
-        // LAYER 6 — MEDIA
+        // LAYER 5 — MEDIA
         // ══════════════════════════════════════════════════════
         media_layer {
             display-name = "MEDIA";
@@ -266,7 +224,7 @@
         };
 
         // ══════════════════════════════════════════════════════
-        // LAYER 7 — FN
+        // LAYER 6 — FN
         // ══════════════════════════════════════════════════════
         fn_layer {
             display-name = "FN";
