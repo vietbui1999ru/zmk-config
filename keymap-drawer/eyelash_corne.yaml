@@ -14,7 +14,7 @@ layers:
   - O
   - P
   - ⌫
-  - ⌃
+  - ⇧
   - A
   - S
   - D
@@ -29,7 +29,7 @@ layers:
   - L
   - ;
   - ''''
-  - {t: ⇧, h: ⇪}
+  - ⌃
   - Z
   - X
   - C
@@ -42,13 +42,13 @@ layers:
   - ','
   - .
   - /
-  - '&rshft_esc'
+  - ⎋
   - ⌘
   - {t: ↵, h: NUM}
-  - {t: SPACE, h: SYM}
-  - {t: ⇥, h: NAV}
+  - SPACE
   - ↵
-  - HYP
+  - {t: ↵, h: SYM}
+  - ⌥
   COLEMAK:
   - ⇥
   - Q
@@ -63,7 +63,7 @@ layers:
   - Y
   - ;
   - ⌫
-  - ⌃
+  - ⇧
   - A
   - R
   - S
@@ -78,7 +78,7 @@ layers:
   - I
   - O
   - ''''
-  - {t: ⇧, h: ⇪}
+  - ⌃
   - Z
   - X
   - C
@@ -91,13 +91,13 @@ layers:
   - ','
   - .
   - /
-  - '&rshft_esc'
+  - ⎋
   - ⌘
   - {t: ↵, h: NUM}
-  - {t: SPACE, h: SYM}
-  - {t: ⇥, h: NAV}
+  - SPACE
   - ↵
-  - HYP
+  - {t: ↵, h: SYM}
+  - ⌥
   NUM:
   - {t: ▽, type: trans}
   - '1'
@@ -192,30 +192,30 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   NAV:
   - {t: ▽, type: trans}
+  - Alt+1
+  - Alt+2
+  - Alt+3
+  - Alt+R
+  - Alt+T
   - {t: ▽, type: trans}
-  - Alt+←
-  - {t: ▽, type: trans}
-  - Alt+→
-  - Home
-  - {t: ▽, type: trans}
-  - PgU
+  - Alt+0
   - Home
   - ↑
-  - End
-  - {t: ▽, type: trans}
+  - Alt+O
+  - Alt+P
   - ⌦
   - {t: ▽, type: trans}
-  - ⌘
-  - ⌥
-  - ⌃
-  - ⇧
-  - PgD
+  - Alt+⇥
+  - Alt+S
+  - {t: ▽, type: trans}
+  - Alt+,
+  - Alt+SLASH
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -223,20 +223,18 @@ layers:
   - ←
   - ↓
   - →
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Gui+Z
-  - Gui+X
-  - Gui+C
-  - Gui+V
-  - End
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - PgU
   - Alt+⌫
   - {t: ▽, type: trans}
+  - Alt+-
+  - Alt+=
+  - Alt+C
+  - Alt+Sft+⇥
+  - Alt+B
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Alt+N
+  - Alt+M
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -244,56 +242,9 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
   - ⌦
-  TMUX:
-  - {t: ▽, type: trans}
-  - w1
-  - w2
-  - w3
-  - w4
-  - w5
-  - {t: ▽, type: trans}
-  - w6
-  - w7
-  - w8
-  - w9
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - sess
-  - ‹p
-  - copy
-  - n›
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ←p
-  - ↓p
-  - ↑p
-  - →p
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - +win
-  - '[]'
-  - h-
-  - v|
-  - det
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ✕
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - last
-  - {t: ▽, type: trans}
   MEDIA:
   - {t: MEDIA, h: toggle}
   - RGB TOG
@@ -395,7 +346,5 @@ layers:
 combos:
 - p: [1, 11]
   k: {t: FN, h: toggle}
-- p: [3, 9]
-  k: {t: TMUX, h: toggle}
 - p: [29, 40]
   k: {t: MEDIA, h: toggle}
