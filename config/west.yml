@@ -11,7 +11,7 @@ manifest:
       import: app/west.yml
     - name: zmk-new_corne
       remote: a741725193
-      revision: main
+      revision: a7d93082
       path: modules/zmk-new_corne
   self:
     path: config
