@@ -130,7 +130,7 @@ layers:
   - {t: ▽, type: trans}
   - ⌘⇧3
   - ⌘⇧4
-  - {t: ▽, type: trans}
+  - '&scr_rec'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
