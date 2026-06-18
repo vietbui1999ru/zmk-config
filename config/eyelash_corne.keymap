@@ -110,6 +110,13 @@
                       , <&macro_tap &kp N4>
                       , <&macro_release &kp LGUI &kp LSHFT>;
         };
+        scr_rec: screenshot_recorder {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI &kp LSHFT>
+                      , <&macro_tap &kp N5>
+                      , <&macro_release &kp LGUI &kp LSHFT>;
+        };
 
         to_qwerty:  to_qwerty  { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&to QWERTY>; };
         to_colemak: to_colemak { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&to COLEMAK>; };
@@ -161,7 +168,7 @@
             bindings = <
 &trans  &kp N1    &kp N2   &kp N3  &kp N4  &kp N5          &trans         &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
 &trans  &aero_1   &aero_2  &aero_3 &aero_4 &aero_5 &trans  &trans  &trans &aero_6 &aero_7 &aero_8 &aero_9 &trans  &trans
-&trans  &scr_full &scr_sel &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &scr_full &scr_sel &scr_rec &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
                             &trans  &trans  &trans                          &trans  &trans  &trans
             >;
         };
