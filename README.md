@@ -29,41 +29,40 @@
 | # | Name | Access | Purpose |
 |---|------|--------|---------|
 | 0 | QWERTY | Default | Base typing layer |
-| 1 | COLEMAK | FN layer toggle | Colemak-DH alpha swap |
-| 2 | NUM | Hold left mid thumb | Numbers + AeroSpace workspaces |
-| 3 | SYM | Hold left outer thumb | All symbols and brackets |
-| 4 | NAV | Hold right mid thumb | Vim-style navigation |
-| 5 | TMUX | `E+I` combo toggle | Pre-prefixed tmux bindings |
-| 6 | MEDIA | `Z+/` combo toggle | RGB, volume, mouse |
-| 7 | FN | `Q+P` combo toggle | Function keys, Bluetooth, system |
+| 1 | COLEMAK | FN layer macro | Colemak-DH alpha swap |
+| 2 | NUM | Left mid thumb | Numbers + AeroSpace workspaces |
+| 3 | SYM | Right mid thumb | All symbols and brackets |
+| 4 | NAV | Both mid thumbs together | Vim-style navigation + AeroSpace window mgmt |
+| 5 | MEDIA | `Z+/` combo toggle | RGB, volume, mouse |
+| 6 | FN | `Q+P` combo toggle | Function keys, Bluetooth, system |
 
 
 ## Thumb Cluster
  
 ```
-Left:  [ LCTRL ]  [ NUM/RET ]  [ SYM/SPC ]
-Right: [ NAV/TAB ]  [ RET ]  [ HYPER ]
+Left:  [ CMD ]  [ NUM ]  [ SPACE ]
+Right: [ RET ]  [ SYM ]  [ HYPER ]
 ```
- 
-| Key | Tap | Hold |
-|-----|-----|------|
-| Left outer | `Ctrl` | `Ctrl` |
-| Left mid | `Return` | NUM layer |
-| Left mid2 | `Space` | SYM layer |
-| Right mid | `Tab` | NAV layer |
-| Right mid2 | `Return` | — |
-| Right outer | `Hyper` | `Hyper` |
+
+| Key | Action | Notes |
+|-----|--------|-------|
+| Left outer | `CMD` (LGUI) | Pure key — no hold-tap |
+| Left mid | `NUM` layer | Pure `&mo` — opens numbers workspace |
+| Left inner | `SPACE` | Pure key — no hold-tap |
+| Right inner | `RETURN` | Pure key — no hold-tap |
+| Right mid | `SYM` layer | Pure `&mo` — opens symbols |
+| Right outer | `HYPER` | Native ZMK macro (Ctrl+Alt+Gui+Shift) — used for AeroSpace |
  
  
 ## Combos
  
 | Combo | Keys | Action | Notes |
 |-------|------|--------|-------|
+| NAV layer | Both mid thumbs | `&mo NAV` | 75ms timeout — chord both middle thumb keys |
 | FN layer | `Q + P` | Toggle FN | Top row outer corners — deliberate |
-| TMUX layer | `E + I` | Toggle TMUX | Top row symmetric — deliberate |
 | MEDIA layer | `Z + /` | Toggle MEDIA | Bottom row outer corners — deliberate |
- 
-All combos have a 50ms timeout to prevent misfires during normal typing.
+
+All combos have a tight timeout (50–75ms) to prevent misfires during normal typing.
 
 ---
 
