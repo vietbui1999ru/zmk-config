@@ -28,14 +28,11 @@
             key-positions = <29 40>;
             bindings = <&tog MEDIA>;
         };
-    };
-
-    // NAV activates automatically when both NUM and SYM are held simultaneously
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        nav_layer {
-            if-layers = <NUM SYM>;
-            then-layer = <NAV>;
+        // Both middle thumbs together → NAV (positions 43 and 46)
+        combo_nav {
+            timeout-ms = <75>;
+            key-positions = <43 46>;
+            bindings = <&mo NAV>;
         };
     };
 
@@ -51,8 +48,8 @@
     };
 
     macros {
-        // Hyper macro kept for reference but right outer thumb now sends RALT
-        // so Karabiner intercepts right_option → Hyper for AeroSpace
+        // Native Hyper macro — right outer thumb sends this directly
+        // Karabiner kept only for scroll-wheel (Ctrl + mouse motion)
         hyper: hyper_key {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -123,11 +120,11 @@
 
         // ══════════════════════════════════════════════════════
         // LAYER 0 — QWERTY
-        // Left middle thumb  = hold → NUM,  tap → RET
-        // Right middle thumb = hold → SYM,  tap → RET
-        // Both middle thumbs held → NAV (conditional layer)
+        // Left middle thumb  = &mo NUM
+        // Right middle thumb = &mo SYM
+        // Both middle thumbs tapped together → NAV (combo)
         // Inner thumbs = SPACE (left) / ENTER (right)
-        // Right outer thumb = RALT (Karabiner converts to Hyper)
+        // Right outer thumb = Hyper (native ZMK)
         // ══════════════════════════════════════════════════════
         qwerty_layer {
             display-name = "QWERTY";
@@ -138,8 +135,8 @@
 &kp LSHFT  &kp A  &kp S  &kp D  &kp F  &kp G  &trans   &trans  &trans &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
 // Row 2: 12 alpha + 2 encoder
 &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B  &trans          &trans  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-// Thumbs: CMD | NUM/RET | SPC    ENT | SYM/RET | RALT(→Hyper via Karabiner)
-                   &kp LGUI  &lt_thumb NUM RET  &kp SPACE   &kp RET  &lt_thumb SYM RET  &kp RALT
+// Thumbs: CMD | NUM | SPC    ENT | SYM | Hyper
+                   &kp LGUI  &mo NUM  &kp SPACE   &kp RET  &mo SYM  &hyper
             >;
         };
 
@@ -152,7 +149,7 @@
 &kp TAB    &kp Q  &kp W  &kp F  &kp P  &kp B           &trans         &kp J  &kp L  &kp U      &kp Y    &kp SEMI  &kp BSPC
 &kp LSHFT  &kp A  &kp R  &kp S  &kp T  &kp G  &trans   &trans  &trans &kp M  &kp N  &kp E      &kp I    &kp O     &kp SQT
 &kp LCTRL  &kp Z  &kp X  &kp C  &kp D  &kp V  &trans          &trans  &kp K  &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                   &kp LGUI  &lt_thumb NUM RET  &kp SPACE   &kp RET  &lt_thumb SYM RET  &kp RALT
+                    &kp LGUI  &mo NUM  &kp SPACE   &kp RET  &mo SYM  &hyper
             >;
         };
 
