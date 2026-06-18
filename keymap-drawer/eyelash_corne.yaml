@@ -44,11 +44,11 @@ layers:
   - /
   - ⎋
   - ⌘
-  - {t: ↵, h: NUM}
+  - NUM
   - SPACE
   - ↵
-  - {t: ↵, h: SYM}
-  - ⌥
+  - SYM
+  - HYP
   COLEMAK:
   - ⇥
   - Q
@@ -93,11 +93,11 @@ layers:
   - /
   - ⎋
   - ⌘
-  - {t: ↵, h: NUM}
+  - NUM
   - SPACE
   - ↵
-  - {t: ↵, h: SYM}
-  - ⌥
+  - SYM
+  - HYP
   NUM:
   - {t: ▽, type: trans}
   - '1'
@@ -348,3 +348,5 @@ combos:
   k: {t: FN, h: toggle}
 - p: [29, 40]
   k: {t: MEDIA, h: toggle}
+- p: [43, 46]
+  k: NAV
